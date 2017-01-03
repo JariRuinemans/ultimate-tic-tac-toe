@@ -1,0 +1,205 @@
+@import 'partials/vars'
+
+*
+  box-sizing: border-box
+  -webkit-transition: all 0.8s ease
+  -moz-transition: all 0.8s ease
+  -o-transition: all 0.8s ease
+  transition: all 0.8s ease
+
+#main
+  min-height: 100vh
+  min-width: 100vw
+
+table
+  width: 25vmin
+  height: 25vmin
+  margin: 1.5vh auto
+
+  tr
+    background-color: color_bg !important
+
+  &.win1
+    border: solid color_p1
+
+  &.win2
+    border: solid color_p2
+
+.p1
+  background-color: color_p1
+  color: color_bg
+
+.p2
+  background-color: color_p2
+  color: color_bg
+
+.playable
+  -webkit-transform: scale(1)
+  -moz-transform: scale(1)
+
+.unplayable
+  -webkit-transform: scale(0.8)
+  -moz-transform: scale(0.8)
+  opacity: 0.5
+
+.statusbar
+  margin-bottom: 0
+  max-width: 100%
+  background-color: color_status_bg
+  text-align: center
+
+  p
+    color: color_status_font
+    font-family: font_primary
+    font-size: 5vw
+    font-weight: 800
+    margin: 0
+
+  input
+    font-size: 3vw
+    font-family: font_secondary
+    text-align: center
+    margin: 5vw auto
+    width: 60vw
+
+  .playerBox
+    width: 40vw
+
+    &.player1
+      float: left
+
+    &.player2
+      float: right
+
+    input
+      width: 30vw
+      margin: 1vh 2vw
+      height: 6vh
+      padding: 2vh
+      font-size: 3.5vmin
+
+    p
+      width: 30vw
+      height: 6vh
+      line-height: 7vh
+      margin: 1vh 2vw
+      font-size: 3.5vmin
+
+  &.top
+    height: 8vh
+
+    p.status
+      font-size: 3.5vw
+      line-height: 8vh
+      width: 90vw
+
+  .box
+    width: 1vw
+    height: 8vh
+    position: relative
+    top: 0
+
+    &.p1
+      left: 0
+      float: left
+    &.p2
+      right: 0
+      float: right
+    &.slide
+      width: 10vw
+
+// Splash page
+
+.splash
+  padding: 18vh 0
+
+  table
+    -webkit-transform: scale(1.8)
+    -moz-transform: scale(1.8)
+
+  tr:nth-child(3) td:nth-child(2)
+    -webkit-animation-duration: 1s
+    -webkit-animation-name: fadein
+    -webkit-animation-fill-mode: forwards
+    -moz-animation-duration: 1s
+    -moz-animation-name: fadein
+    -moz-animation-fill-mode: forwards
+
+  tr:nth-child(2) td:nth-child(2)
+    -webkit-animation-delay: 0.5s
+    -webkit-animation-duration: 1s
+    -webkit-animation-name: fadein
+    -webkit-animation-fill-mode: forwards
+    -moz-animation-delay: 0.5s
+    -moz-animation-duration: 1s
+    -moz-animation-name: fadein
+    -moz-animation-fill-mode: forwards
+
+  tr:first-child td:nth-child(2)
+    -webkit-animation-delay: 1s
+    -webkit-animation-duration: 1s
+    -webkit-animation-name: fadein
+    -webkit-animation-fill-mode: forwards
+    -moz-animation-delay: 1s
+    -moz-animation-duration: 1s
+    -moz-animation-name: fadein
+    -moz-animation-fill-mode: forwards
+
+  tr:first-child td:nth-child(odd)
+    -webkit-animation-delay: 1.3s
+    -webkit-animation-duration: 1s
+    -webkit-animation-name: fadein
+    -webkit-animation-fill-mode: forwards
+    -moz-animation-delay: 1.3s
+    -moz-animation-duration: 1s
+    -moz-animation-name: fadein
+    -moz-animation-fill-mode: forwards
+
+@keyframes fadein
+  from
+    background-color: color_bg
+    -webkit-transform: scale(0.5)
+    -moz-transform: scale(0.5)
+  to
+    background-color: color_status_bg
+
+button, .button
+  background-color: color_button
+  font-family: font_primary
+
+  &:hover
+    background-color: color_button_hover
+
+// ng-view animate
+
+.view-enter, .view-leave
+  -webkit-transition: all 3s ease
+  -moz-transition: all 3s ease
+  -o-transition: all 3s ease
+  transition: all 3s ease
+
+.view-enter
+  opacity: 0
+
+.view-enter.view-enter-active
+  opacity: 1
+
+// How to play
+
+.howto
+  .panel
+    min-height: 100vh
+    background-color: white
+    p
+      color: color_status_bg
+
+  li
+    list-style-type: cjk-ideographic
+    text-align: left
+    color: color_status_bg
+    font-family: font_secondary
+    font-size: 18px
+    font-weight: 100
+
+  button
+    margin: 25px auto

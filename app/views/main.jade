@@ -1,0 +1,53 @@
+.game(ng-show="has_started()")
+  .row.statusbar.top
+    p.status(ng-show="game.winner || game.tie"){{game.status}}
+    .box.p1(ng-class="{slide: turn() == 1}", ng-show="!game.winner && !game.tie")
+    .playerBox.player1
+      input(type="text", ng-model="game.name1", ng-show="player1()", maxlength="15")
+      p(ng-show="player2()") {{game.name1 || "Player 1"}}
+    .box.p2(ng-class="{slide: turn() == 2}", ng-show="!game.winner && !game.tie")
+    .playerBox.player2
+      input(type="text", ng-model="game.name2", ng-show="player2()", maxlength="15")
+      p(ng-show="player1()") {{game.name2 || "Player 2"}}
+
+  //- Ultimate boards ---------
+  .row
+    .large-4.small-4.columns
+      ttt(subgame="game.board0", bid="0", game="game")
+    .large-4.small-4.columns
+      ttt(subgame="game.board1", bid="1", game="game")
+    .large-4.small-4.columns
+      ttt(subgame="game.board2", bid="2", game="game")
+
+  .row
+    .large-4.small-4.columns
+      ttt(subgame="game.board3", bid="3", game="game")
+    .large-4.small-4.columns
+      ttt(subgame="game.board4", bid="4", game="game")
+    .large-4.small-4.columns
+      ttt(subgame="game.board5", bid="5", game="game")
+
+  .row
+    .large-4.small-4.columns
+      ttt(subgame="game.board6", bid="6", game="game")
+    .large-4.small-4.columns
+      ttt(subgame="game.board7", bid="7", game="game")
+    .large-4.small-4.columns
+      ttt(subgame="game.board8", bid="8", game="game")
+
+  // --------------------
+  .row
+    .large-10.columns.large-centered
+      button(ng-show="game.winner > 0 || game.tie", ng-click='rematch()') Rematch!
+
+.row.statusbar.panel(ng-show="starting() && is_pending()")
+  p Challenge accepted!
+
+.row.statusbar.panel(ng-show="(is_pending() || !game) && !starting()")
+  p Send this link to your friend
+  input(type="text", value="{{gameURL}}")
+  button.large(ng-click="homepage()") Go Back
+
+.row.statusbar.panel(ng-show="!is_pending() && !has_started() && game")
+  p Your opponent has fled!
+  button.large(ng-click="homepage()") Go Home

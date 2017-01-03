@@ -1,0 +1,11 @@
+{
+  "name": "T3",
+  "version": "0.7.0",
+  "dependencies": {},
+  "devDependencies": {
+    "stylus": "~0.32.1",
+    "coffee-script": "~1.6.3",
+    "jade": "~0.31.2",
+    "http-server": "~0.5.3"
+  }
+}
